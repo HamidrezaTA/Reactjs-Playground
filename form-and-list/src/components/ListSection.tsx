@@ -1,33 +1,31 @@
+import { useContext, useState } from "react";
+import { userListContext } from "../App";
+
 function ListSection() {
+  const _userListContext = useContext(userListContext);
+
   return (
     <div className="m-5">
       <table className="table  table-striped">
         <thead>
           <tr>
             <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
+            <th scope="col">Username</th>
+            <th scope="col">Email</th>
+            <th scope="col">Password</th>
+            <th scope="col">Gender</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td colSpan={2}>Larry the Bird</td>
-            <td>@twitter</td>
-          </tr>
+          {_userListContext.userList?.map((user, index) => (
+            <tr key={index}>
+              <th scope="row">{index}</th>
+              <td>{user.username}</td>
+              <td>{user.email}</td>
+              <td>{user.password}</td>
+              <td>{user.gender}</td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>
