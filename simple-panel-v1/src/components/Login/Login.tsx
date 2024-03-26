@@ -1,11 +1,19 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Login.css";
 
 function Login() {
+  const navigate = useNavigate();
   const [loginState, setLoginState] = useState("number");
+
   const onLoginClickEvent = () => {
     setLoginState(() => "otp");
   };
+
+  const onEnterClickEvent = () => {
+    navigate("/");
+  };
+
   return (
     <>
       <div className="card mx-auto mt-5" style={{ width: "25rem" }}>
@@ -42,7 +50,7 @@ function Login() {
               <input type="text" className="form-control" id="inputOtp" />
             </div>
             <div className="text-center">
-              <button className="btn btn-primary" onClick={onLoginClickEvent}>
+              <button className="btn btn-primary" onClick={onEnterClickEvent}>
                 Enter
               </button>
             </div>

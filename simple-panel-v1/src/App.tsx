@@ -1,10 +1,11 @@
 import "./App.css";
 import Login from "./components/Login/Login";
+import MainLayout from "./components/MainLayout/MainLayout";
 
 function App() {
   return (
     <div className="main container-fluid">
-      <Login></Login>
+      <MainLayout></MainLayout>
     </div>
   );
 }
